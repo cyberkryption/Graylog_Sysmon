@@ -1,0 +1,10 @@
+// This rule is cleaning up the message - Stage -0
+// -- It addresses an issue with older filebeat versions, which can have trouble with the 'source' field 
+// -- The rule will not cause any trouble with filebeat versions that do not have that issue
+rule "sysmon cleanup (gl2_source_fix)"
+when
+    is_not_null($message.winlogbeat_fields_gl2_source_collector)
+then
+    set_field("gl2_source_collector", to_string($message.winlogbeat_fields_gl2_source_collector));
+    remove_field("winlogbeat_fields_gl2_source_collector");
+end
