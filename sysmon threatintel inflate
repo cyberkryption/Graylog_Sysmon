@@ -1,0 +1,10 @@
+rule "sysmon threatintel inflate"
+when
+    // run only if one of the fields is true
+    to_bool($message.sysmon_dns_lookup_ip_threat_indicated) OR to_bool($message.sysmon_dns_lookup_threat_indicated) OR to_bool($message.sysmon_src_ip_threat_indicated) OR to_bool($message.otx_threat_indicated)
+then
+
+    // This is to make Graylog searches easy
+    // -- Enables searches like threat_indicated:true
+    set_field("threat_indicated", true);
+end
