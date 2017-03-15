@@ -9,9 +9,10 @@ when
 	contains(value: to_string($message.sysmon_cmd_event), search: "ExecutionPolicy bypass", ignore_case: true) ||
 	contains(value: to_string($message.sysmon_cmd_event), search: "tracert", ignore_case: true) ||
 	contains(value: to_string($message.sysmon_cmd_event), search: "ssh", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_cmd_event), search: "iex", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_cmd_event), search: "iwr", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_cmd_event), search: "iex ", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_cmd_event), search: "iwr ", ignore_case: true) ||
 	contains(value: to_string($message.sysmon_cmd_event), search: "DownloadFile", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_cmd_event), search: "DownloadString", ignore_case: true) ||
 	contains(value: to_string($message.sysmon_cmd_event), search: "telnet", ignore_case: true) ||
 	contains(value: to_string($message.sysmon_cmd_event), search: "psexe", ignore_case: true) ||
 	contains(value: to_string($message.sysmon_cmd_event), search: "-NoProfile", ignore_case: true) ||
