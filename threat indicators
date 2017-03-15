@@ -1,0 +1,41 @@
+rule "threat indicators"
+when
+	has_field("sysmon_cmd_event") &&
+	contains(value: to_string($message.sysmon_cmd_event), search: "powershell", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_cmd_event), search: "exec bypass", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_cmd_event), search: "ExecutionPolicy bypass", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_cmd_event), search: "tracert", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_cmd_event), search: "ssh", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_cmd_event), search: "iex", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_cmd_event), search: "iwr", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_cmd_event), search: "DownloadFile", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_cmd_event), search: "telnet", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_cmd_event), search: "psexe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_cmd_event), search: "-NoProfile", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_cmd_event), search: "-nop", ignore_case: true) &&
+	has_field("sysmon_dns_lookup_ip") &&
+	contains(value: to_string($message.sysmon_data_process), search: "at.exe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_data_process), search: "certutil.exe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_data_process), search: "cmd.exe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_data_process), search: "cscript.exe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_data_process), search: "wscript.exe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_data_process), search: "rundll32.exe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_data_process), search: "regsvr32.exe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_data_process), search: "mshta.exe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_data_process), search: "python.exe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_data_process), search: "psexe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_data_process), search: "installutil.exe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_data_process), search: "putty.exe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_data_process), search: "telnet.exe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_data_process), search: "msiexec.exe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_data_process), search: "reg.exe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_data_process), search: "kitty.exe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_data_process), search: "kitty_portable.exe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_data_process), search: "net.exe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_data_process), search: "mmc.exe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_data_process), search: "sc.exe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_data_process), search: "ftp.exe", ignore_case: true)
+then
+	// set field
+	set_field("suspicious_event", true);
+end
