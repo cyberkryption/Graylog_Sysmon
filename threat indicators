@@ -1,5 +1,6 @@
 rule "threat indicators"
 when
+    // Command Events
 	has_field("sysmon_cmd_event") &&
 	contains(value: to_string($message.sysmon_cmd_event), search: "powershell", ignore_case: true) ||
 	contains(value: to_string($message.sysmon_cmd_event), search: "exec bypass", ignore_case: true) ||
@@ -13,6 +14,7 @@ when
 	contains(value: to_string($message.sysmon_cmd_event), search: "psexe", ignore_case: true) ||
 	contains(value: to_string($message.sysmon_cmd_event), search: "-NoProfile", ignore_case: true) ||
 	contains(value: to_string($message.sysmon_cmd_event), search: "-nop", ignore_case: true) &&
+	// Network Events
 	has_field("sysmon_dns_lookup_ip") &&
 	contains(value: to_string($message.sysmon_data_process), search: "at.exe", ignore_case: true) ||
 	contains(value: to_string($message.sysmon_data_process), search: "certutil.exe", ignore_case: true) ||
@@ -34,7 +36,15 @@ when
 	contains(value: to_string($message.sysmon_data_process), search: "net.exe", ignore_case: true) ||
 	contains(value: to_string($message.sysmon_data_process), search: "mmc.exe", ignore_case: true) ||
 	contains(value: to_string($message.sysmon_data_process), search: "sc.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "ftp.exe", ignore_case: true)
+	contains(value: to_string($message.sysmon_data_process), search: "ftp.exe", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_dest_port), search: "22", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_dest_port), search: "23", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_dest_port), search: "1080", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_dest_port), search: "8080", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_dest_port), search: "3128", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_dest_port), search: "9001", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_dest_port), search: "9030", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_dest_port), search: "1723", ignore_case: true)
 then
 	// set field
 	set_field("suspicious_event", true);
