@@ -1,0 +1,17 @@
+rule "Extract pfSense firewall fields"
+when
+  has_field("message")
+then
+  let m = regex("^filterlog: (\\d+),(\\d+),([^,]*),(\\d+),(\\w+),(\\w+),(\\w+),(\\w+),(.*)?", to_string($message.message));
+
+  set_field("pfsense_firewall_event", true);
+  set_field("rule", m["0"]);
+  set_field("subrule", m["1"]);
+  set_field("anchor", m["2"]);
+  set_field("tracker", m["3"]);
+  set_field("interface", m["4"]);
+  set_field("reason", m["5"]);
+  set_field("action", m["6"]);
+  set_field("direction", m["7"]);
+  set_field("ip_specific_data", m["8"]);
+end
