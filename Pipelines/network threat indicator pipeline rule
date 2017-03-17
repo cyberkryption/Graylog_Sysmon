@@ -1,6 +1,6 @@
 rule "network threat indicators"
 when
-    // Command Events
+        // Network Events
 	has_field("sysmon_dns_lookup_ip") &&
 	contains(to_string($message.sysmon_data_process), "at.exe", true) ||
 	contains(to_string($message.sysmon_data_process), "certutil.exe", true) ||
@@ -23,14 +23,23 @@ when
 	contains(to_string($message.sysmon_data_process), "mmc.exe", true) ||
 	contains(to_string($message.sysmon_data_process), "sc.exe", true) ||
 	contains(to_string($message.sysmon_data_process), "ftp.exe", true) ||
+	// Start Ports
+	($message.sysmon_dest_port) == 22 ||
+	($message.sysmon_dest_port) == 23 ||
 	($message.sysmon_dest_port) == 1080 ||
 	($message.sysmon_dest_port) == 8080 ||
 	($message.sysmon_dest_port) == 3128 ||
 	($message.sysmon_dest_port) == 9001 ||
 	($message.sysmon_dest_port) == 9030 ||
 	($message.sysmon_dest_port) == 1723 ||
-	($message.sysmon_dest_port) == 22 ||
-	($message.sysmon_dest_port) == 23
+	($message.sysmon_dest_port) == 3389 ||
+	($message.sysmon_dest_port) == 5800 ||
+	($message.sysmon_dest_port) == 5900 ||
+	($message.sysmon_dest_port) == 1194 ||
+	($message.sysmon_dest_port) == 1701 ||
+	($message.sysmon_dest_port) == 1723 ||
+	($message.sysmon_dest_port) == 1293 ||
+	($message.sysmon_dest_port) == 4500
 then
 	// set field
 	set_field("suspicious_event", true);
