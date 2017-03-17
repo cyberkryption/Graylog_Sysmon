@@ -78,5 +78,5 @@ when
 	($message.sysmon_dest_port) == 4500
 then
 	// set field
-	set_field("suspicious_event", true);
+	set_field("suspicious_net_event", true);
 end
