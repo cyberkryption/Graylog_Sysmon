@@ -1,4 +1,7 @@
 rule "Extract pfSense firewall fields"
+
+// Stage 0
+
 when
   has_field("message") &&
   contains(value: to_string($message.source), search: "filterlog", ignore_case: true)

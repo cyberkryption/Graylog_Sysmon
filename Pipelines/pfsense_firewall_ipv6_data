@@ -1,0 +1,16 @@
+rule "Extract pfSense firewall IPv6 data"
+
+// Stage 1
+
+when
+  has_field("ip_specific_data")
+then
+  let a = regex("^(6),(\\w+),([^,]*),(\\d+),([^,]+),(\\d+)", to_string($message.ip_specific_data));
+
+  set_field("ip_version", a["0"]);
+  set_field("class", a["1"]);
+  set_field("flow_label", a["2"]);
+  set_field("hop_limit", a["3"]);
+  set_field("protocol_text", a["4"]);
+  set_field("protocol_id", a["5"]);
+end

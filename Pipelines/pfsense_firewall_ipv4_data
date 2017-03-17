@@ -1,0 +1,19 @@
+rule "Extract pfSense firewall IPv4 data"
+
+// Stage 1
+
+when
+  has_field("ip_specific_data")
+then
+  let a = regex("^(4),([^,]*),([^,]*),(\\d+),(\\d+),(\\d+),(\\w+),(\\d+),(tcp|udp)", to_string($message.ip_specific_data));
+
+  set_field("ip_version", a["0"]);
+  set_field("tos", a["1"]);
+  set_field("ecn", a["2"]);
+  set_field("ttl", a["3"]);
+  set_field("id", a["4"]);
+  set_field("offset", a["5"]);
+  set_field("flags", a["6"]);
+  set_field("protocol_id", a["7"]);
+  set_field("protocol_text", a["8"]);
+end
