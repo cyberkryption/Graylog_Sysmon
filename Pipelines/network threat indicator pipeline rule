@@ -58,24 +58,24 @@ when
 	contains(to_string($message.sysmon_dns_lookup), "tor2web", true) ||
 	contains(to_string($message.sysmon_dns_lookup), "tor2web", true) ||
 	contains(to_string($message.sysmon_dns_lookup), "tor-gateways", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "hiddenservice.net", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "hiddenservice.net", true)
 	// Start Ports
-	($message.sysmon_dest_port) == 22 ||
-	($message.sysmon_dest_port) == 23 ||
-	($message.sysmon_dest_port) == 1080 ||
-	($message.sysmon_dest_port) == 8080 ||
-	($message.sysmon_dest_port) == 3128 ||
-	($message.sysmon_dest_port) == 9001 ||
-	($message.sysmon_dest_port) == 9030 ||
-	($message.sysmon_dest_port) == 1723 ||
-	($message.sysmon_dest_port) == 3389 ||
-	($message.sysmon_dest_port) == 5800 ||
-	($message.sysmon_dest_port) == 5900 ||
-	($message.sysmon_dest_port) == 1194 ||
-	($message.sysmon_dest_port) == 1701 ||
-	($message.sysmon_dest_port) == 1723 ||
-	($message.sysmon_dest_port) == 1293 ||
-	($message.sysmon_dest_port) == 4500
+	//($message.sysmon_dest_port) == 22 ||
+	//($message.sysmon_dest_port) == 23 ||
+	//($message.sysmon_dest_port) == 1080 ||
+	//($message.sysmon_dest_port) == 8080 ||
+	//($message.sysmon_dest_port) == 3128 ||
+	//($message.sysmon_dest_port) == 9001 ||
+	//($message.sysmon_dest_port) == 9030 ||
+	//($message.sysmon_dest_port) == 1723 ||
+	//($message.sysmon_dest_port) == 3389 ||
+	//($message.sysmon_dest_port) == 5800 ||
+	//($message.sysmon_dest_port) == 5900 ||
+	//($message.sysmon_dest_port) == 1194 ||
+	//($message.sysmon_dest_port) == 1701 ||
+	//($message.sysmon_dest_port) == 1723 ||
+	//($message.sysmon_dest_port) == 1293 ||
+	//($message.sysmon_dest_port) == 4500
 then
 	// set field
 	set_field("suspicious_net_event", true);
