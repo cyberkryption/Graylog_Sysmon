@@ -28,7 +28,9 @@ when
 	($message.sysmon_dest_port) == 3128 ||
 	($message.sysmon_dest_port) == 9001 ||
 	($message.sysmon_dest_port) == 9030 ||
-	($message.sysmon_dest_port) == 1723
+	($message.sysmon_dest_port) == 1723 ||
+	($message.sysmon_dest_port) == 22 ||
+	($message.sysmon_dest_port) == 23
 then
 	// set field
 	set_field("suspicious_event", true);
