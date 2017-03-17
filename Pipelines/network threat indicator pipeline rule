@@ -23,12 +23,12 @@ when
 	contains(to_string($message.sysmon_data_process), "mmc.exe", true) ||
 	contains(to_string($message.sysmon_data_process), "sc.exe", true) ||
 	contains(to_string($message.sysmon_data_process), "ftp.exe", true) ||
-	contains(to_string($message.sysmon_dest_port), "1080", true) ||
-	contains(to_string($message.sysmon_dest_port), "8080", true) ||
-	contains(to_string($message.sysmon_dest_port), "3128", true) ||
-	contains(to_string($message.sysmon_dest_port), "9001", true) ||
-	contains(to_string($message.sysmon_dest_port), "9030", true) ||
-	contains(to_string($message.sysmon_dest_port), "1723", true)
+	($message.sysmon_dest_port) == 1080 ||
+	($message.sysmon_dest_port) == 8080 ||
+	($message.sysmon_dest_port) == 3128 ||
+	($message.sysmon_dest_port) == 9001 ||
+	($message.sysmon_dest_port) == 9030 ||
+	($message.sysmon_dest_port) == 1723
 then
 	// set field
 	set_field("suspicious_event", true);
