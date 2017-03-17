@@ -23,6 +23,42 @@ when
 	contains(to_string($message.sysmon_data_process), "mmc.exe", true) ||
 	contains(to_string($message.sysmon_data_process), "sc.exe", true) ||
 	contains(to_string($message.sysmon_data_process), "ftp.exe", true) ||
+	// Suspicious Destinations
+	contains(to_string($message.sysmon_dns_lookup), "ipify.org", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "whatismyipaddress.com", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "edns.ip-api.com", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "checkip.dyndns.org", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "icanhazip.com", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "ifconfig.me", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "ifconfig.co", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "ipaddress.com", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "ipinfo.io", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "goo.gl", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "git.io", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "bit.ly", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "t.co", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "ow.ly", true) ||
+	// Dynamic DNS providers
+	contains(to_string($message.sysmon_dns_lookup), "dlinkddns.com", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "no-ip", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "afraid.org", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "duckdns.org", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "changeip.com", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "ddns.net", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "hopto.org", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "zapto.org", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "servehttp.com", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "sytes.net", true) ||
+	// Tor2Web Providers
+	contains(to_string($message.sysmon_dns_lookup), "onion.to", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "onion.cab", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "onion.sh", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "onion.nu", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "onion.direct", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "tor2web", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "tor2web", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "tor-gateways", true) ||
+	contains(to_string($message.sysmon_dns_lookup), "hiddenservice.net", true) ||
 	// Start Ports
 	($message.sysmon_dest_port) == 22 ||
 	($message.sysmon_dest_port) == 23 ||
