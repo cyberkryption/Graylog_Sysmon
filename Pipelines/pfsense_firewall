@@ -1,6 +1,7 @@
 rule "Extract pfSense firewall fields"
 when
-  has_field("message")
+  has_field("message") &&
+  contains(value: to_string($message.source), search: "filterlog", ignore_case: true)
 then
   let m = regex("^filterlog: (\\d+),(\\d+),([^,]*),(\\d+),(\\w+),(\\w+),(\\w+),(\\w+),(.*)?", to_string($message.message));
 
