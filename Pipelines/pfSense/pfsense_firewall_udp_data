@@ -4,7 +4,7 @@ rule "Extract pfSense firewall IPv4-udp data"
 
 when
   has_field("protocol_text") &&
-  contains(value: to_string($message.protocol_text), search: "udp", ignore_case: true)
+  contains(to_string($message.protocol_text), "udp", true)
 then
   let a = regex("udp,(?:\\d+,)?(\\d+),(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}),(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}),(\\d+),(\\d+),(\\d+)", to_string($message.ip_specific_data));
 
