@@ -2,33 +2,33 @@ rule "network threat indicators"
 when
     // Command Events
 	has_field("sysmon_dns_lookup_ip") &&
-	contains(value: to_string($message.sysmon_data_process), search: "at.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "certutil.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "cmd.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "cscript.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "wscript.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "rundll32.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "regsvr32.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "mshta.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "python.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "psexe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "installutil.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "putty.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "telnet.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "msiexec.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "reg.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "kitty.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "kitty_portable.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "net.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "mmc.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "sc.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_process), search: "ftp.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_dest_port), search: "1080", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_dest_port), search: "8080", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_dest_port), search: "3128", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_dest_port), search: "9001", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_dest_port), search: "9030", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_dest_port), search: "1723", ignore_case: true)
+	contains(to_string($message.sysmon_data_process), "at.exe", true) ||
+	contains(to_string($message.sysmon_data_process), "certutil.exe", true) ||
+	contains(to_string($message.sysmon_data_process), "cmd.exe", true) ||
+	contains(to_string($message.sysmon_data_process), "cscript.exe", true) ||
+	contains(to_string($message.sysmon_data_process), "wscript.exe", true) ||
+	contains(to_string($message.sysmon_data_process), "rundll32.exe", true) ||
+	contains(to_string($message.sysmon_data_process), "regsvr32.exe", true) ||
+	contains(to_string($message.sysmon_data_process), "mshta.exe", true) ||
+	contains(to_string($message.sysmon_data_process), "python.exe", true) ||
+	contains(to_string($message.sysmon_data_process), "psexe", true) ||
+	contains(to_string($message.sysmon_data_process), "installutil.exe", true) ||
+	contains(to_string($message.sysmon_data_process), "putty.exe", true) ||
+	contains(to_string($message.sysmon_data_process), "telnet.exe", true) ||
+	contains(to_string($message.sysmon_data_process), "msiexec.exe", true) ||
+	contains(to_string($message.sysmon_data_process), "reg.exe", true) ||
+	contains(to_string($message.sysmon_data_process), "kitty.exe", true) ||
+	contains(to_string($message.sysmon_data_process), "kitty_portable.exe", true) ||
+	contains(to_string($message.sysmon_data_process), "net.exe", true) ||
+	contains(to_string($message.sysmon_data_process), "mmc.exe", true) ||
+	contains(to_string($message.sysmon_data_process), "sc.exe", true) ||
+	contains(to_string($message.sysmon_data_process), "ftp.exe", true) ||
+	contains(to_string($message.sysmon_dest_port), "1080", true) ||
+	contains(to_string($message.sysmon_dest_port), "8080", true) ||
+	contains(to_string($message.sysmon_dest_port), "3128", true) ||
+	contains(to_string($message.sysmon_dest_port), "9001", true) ||
+	contains(to_string($message.sysmon_dest_port), "9030", true) ||
+	contains(to_string($message.sysmon_dest_port), "1723", true)
 then
 	// set field
 	set_field("suspicious_event", true);
