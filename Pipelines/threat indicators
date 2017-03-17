@@ -2,22 +2,22 @@ rule "threat indicators"
 when
     // Command Events
 	has_field("sysmon_cmd_event") &&
-	contains(value: to_string($message.sysmon_cmd_event), search: "bypass", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_cmd_event), search: "vssadmin.exe Delete Shadows", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_cmd_event), search: "vssadmin delete shadows", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_cmd_event), search: "wmic shadowcopy delete", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_cmd_event), search: "ExecutionPolicy bypass", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_cmd_event), search: "tracert", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_cmd_event), search: "ssh", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_cmd_event), search: "iex ", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_cmd_event), search: "iwr ", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_cmd_event), search: "DownloadFile", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_cmd_event), search: "DownloadString", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_cmd_event), search: "telnet", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_cmd_event), search: "psexe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_cmd_event), search: "-NoProfile", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_cmd_event), search: "-w hidden ", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_cmd_event), search: "-windowstyle hidden", ignore_case: true)
+	contains(to_string($message.sysmon_cmd_event), "bypass", true) ||
+	contains(to_string($message.sysmon_cmd_event), "vssadmin.exe Delete Shadows", true) ||
+	contains(to_string($message.sysmon_cmd_event), "vssadmin delete shadows", true) ||
+	contains(to_string($message.sysmon_cmd_event), "wmic shadowcopy delete", true) ||
+	contains(to_string($message.sysmon_cmd_event), "ExecutionPolicy bypass", true) ||
+	contains(to_string($message.sysmon_cmd_event), "tracert", true) ||
+	contains(to_string($message.sysmon_cmd_event), "ssh", true) ||
+	contains(to_string($message.sysmon_cmd_event), "iex ", true) ||
+	contains(to_string($message.sysmon_cmd_event), "iwr ", true) ||
+	contains(to_string($message.sysmon_cmd_event), "DownloadFile", true) ||
+	contains(to_string($message.sysmon_cmd_event), "DownloadString", true) ||
+	contains(to_string($message.sysmon_cmd_event), "telnet", true) ||
+	contains(to_string($message.sysmon_cmd_event), "psexe", true) ||
+	contains(to_string($message.sysmon_cmd_event), "-NoProfile", true) ||
+	contains(to_string($message.sysmon_cmd_event), "-w hidden ", true) ||
+	contains(to_string($message.sysmon_cmd_event), "-windowstyle hidden", true)
 then
 	// set field
 	set_field("suspicious_event", true);
