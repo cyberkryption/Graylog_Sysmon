@@ -2,301 +2,301 @@ rule "detect ransomware"
 when
     // File Created Events
 	has_field("sysmon_data_file_created") &&
-	contains(value: to_string($message.sysmon_data_file_created), search: "help_decrypt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "help_restore", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "ReadDecryptFilesHere", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "howto_recover_file", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_how_recover_", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "HOWTO_RESTORE_FILES", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "help_my_files", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "how_recover", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "HELP_TO_SAVE_FILES", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "DECRYPT_INSTRUCTIONS", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "YOUR_FILES.url", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "Coin.Locker.txt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_secret_code.txt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "Decrypt_readme.txt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "FILESAREGONE.txt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "IAMREADYTOPAY.TXT", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "HELLOTHERE.TXT", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "READTHISNOW!!!.txt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "SECRETIDHERE.KEY", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "IHAVEYOURSECRET.KEY", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "SECRET.KEY", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "HELPDECRYPT_YOUR_FILES.HTML", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "RECOVERY_FILES.TXT", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "restorefiles", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "howrecover+", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "restorefiles", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "help_recover_instructions", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_Locky_recover", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_ReCoVeRy_", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "!!!READ_TO_UNLOCK!!!.TXT", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "openforyou@india.com", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".warn_wallet", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "nemo-hacks.at.sigaint.org", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".MATRIX", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "Crytp0l0cker", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "decrypted_files.dat", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "padcrypt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "Vape Launcher.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "READ_ME_!.txt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".enjey", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "Aescrypt.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "PINGY@INDIA.COM", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "WORMKILLER@INDIA.COM.XTBL", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "CEBER3", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "IF_WANT_FILES_BACK_PLS_READ.html", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".iaufkakfhsaraf", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_HELP_HELP_HELP_", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "zXz.html", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".zXz", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "VictemKey_*_*", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "HELP_ME_PLEASE.txt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "!_RECOVERY_HELP_!.txt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "PLEASE-READIT-IF_YOU-WANT.html", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".filegofprencrp", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "COME_RIPRISTINARE_I_FILE.*", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "fattura_*.js", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_steaveiwalker@india.com_", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "COMO_ABRIR_ARQUIVOS.txt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "info@kraken.cc_worldcza@email.cz", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".kr3", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "COMO_RESTAURAR_ARCHIVOS", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".ENCR", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "[File-Help@India.Com].mails", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "damage@india.com", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "What happen to my files.txt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "jeepdayz@india.com", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".BarRax", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".damage", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".locked-*", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".jey", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".CRYPTOSHIEL", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".cfk", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "ASSISTANCE_IN_RECOVERY", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "#_DECRYPT_ASSISTANCE_#", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".lfk", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_HELP_HELP_HELP_", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "BTC_DECRYPT_FILES", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".TheTrumpLocker", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".d4nk", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".x3mpro", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "READ-READ-READ", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".weencedufiles", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".jse", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".powned", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "[KASISKI]", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "INSTRUCCIONES", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "@_USE_TO_FIX_", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".happydayzz", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".hasp", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "001-READ-FOR-DECRYPT-FILES", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "DECRYPT_INFORMATION", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "Rans0m_N0te_Read_ME", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "email-vpupkin3@aol.com", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".hnyear", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "hnumkhotep@india.com.hnumkhotep", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "wowwhereismyfiles", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "decryptional", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "wowreadfordecryp", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".7zipper", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".youransom", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".Harzhuangzi", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".encryptedyourfiles", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "*HERMES", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "[amanda_sofost@india.com]", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".wcry", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".velikasrbija", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".razarac", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".serpent", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".msj", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".szesnl", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_DECRYPT_INFO_szesnl", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "000-IF-YOU-WANT-DEC-FILES", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".evillock", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".letmetrydecfiles", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".yourransom", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".lambda_l0cked", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".gefickt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".uk-dealer@sigaint.org ", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".HakunaMatata", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".CRYPTOSHIELD", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".weareyourfriends", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "MERRY_I_LOVE_YOU_BRUCE.hta", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "How decrypt files.hta", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "unCrypte@outlook.com", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "decipher_ne@outlook.com", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".potato", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".otherinformation", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".vxLock", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".rdmk", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".paytounlock", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "TRY-READ-ME-TO-DEC", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".sage", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "protonmail.ch", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "LEER_INMEDIATAMENTE", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".killedXXX", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".doomed", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".sifreli", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".MERRY", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "000-No-PROBLEM-WE-DEC-FILES", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".noproblemwedecfiles", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "WE-MUST-DEC-FILES", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "powerfulldecrypt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".stn", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "opensourcemail.org", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".id-3044989498_x3m", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".x3m", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "READ_ME_TO_DECRYPT_YOU_INFORMA", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".wuciwug", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".kencf", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "file0locked", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "CryptoRansomware", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".VBRANSOM", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_HELP_Recover_Files_", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".oops", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".deria", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".RMCM1", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "Locked-by-Mafia", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "кибер разветвитель", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "-filesencrypted", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "decrypt_Globe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".hnumkhotep", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".decrypt2017", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "DecryptFile", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".L0CKED", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "NFS-e*1025-7152.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "firstransomware.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "HELP-ME-ENCED-FILES", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "helpmeencedfiles", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "EdgeLocker*.exe ", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".edgel", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".XBTL", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".firecrypt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "YOUR_FILES_ARE_DEAD", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".MRCR1", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".PEGS1", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".RARE1", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".airacropencrypted!", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "cryptsvc@mail.ru", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "WHERE-YOUR-FILES", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "Whereisyourfiles", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "india.com", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".odcodc", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".maktub", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".hush", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".bript", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_*_README.hta", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_*_README.jpg", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "HOW_OPEN_FILES", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".gangbang", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "GJENOPPRETTING_AV_FILER", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "!!! HOW TO DECRYPT FILES !!!", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".braincrypt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "INSTRUCTION RESTORE FILE", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".lesli", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "Survey Locker.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "!!!!!ATENÇÃO!!!!!.html", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "Receipt.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "WindowsApplication1.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "HWID Lock.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "VIP72.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "DALE_FILES.TXT", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".DALE", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".8637", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".kok", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "HOW_TO_RESTORE_YOUR_DATA", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".paymrts", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".paymds", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "RESTORE_CORUPTED_FILES", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "READ@My.txt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "Cyber SpLiTTer Vbs.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".flyper", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "000-PLEASE-READ-WE-HELP", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".VforVendetta", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "popcorn_time.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".filock", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".wallet", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_.rmd", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".uDz2j8mv", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "OSIRIS-*.htm", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "DesktopOsiris", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "inbox.ru", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".no_more_ransom", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".lovewindows", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".osiris", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".R.i.P", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "Important!.txt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "!_HOW_TO_RESTORE_", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "HOW_TO_RESTORE_FILES", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_README_", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".Zzzz", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "lavandos@dr.com", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".coin", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".crypted_file", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".EncrypTile", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".hcked", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_README_", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "Runsome.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "Payment_Advice", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "lblBitcoinInfoMain", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "lblFinallyText", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "lblMain.txt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".hannah", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "*.vindows", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "How to decrypt your files.", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "zcrypt.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".zycrypt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".sgood", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".zzzzz", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "xort.txt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "DOSYALARINIZA ULAŞMAK İÇİN AÇINIZ", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "HOWTO_RECOVER_FILES_", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "HELP_RESTORE_FILES_", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "Recovery+", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_H_e_l_p_RECOVER_INSTRUCTIONS+", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "help_recover_instructions+", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_how_recover+", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "ThxForYurTyme", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_HOW_TO_Decrypt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_RECOVER_INSTRUCTIONS", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "###-READ-FOR-HELLPP", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "rtext.txt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "DECRYPTION INSTRUCTIONS.", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "decrypt explanations.", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_WHAT_is.html", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_HOWDO_text.html", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "readme_liesmich_encryptor_raas", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_Adatok_visszaallitasahoz_utasitasok", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "README_TO_RECURE_YOUR_FILES", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "Your files encrypted by our friends !!!.txt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "ATTENTION.url", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "@WARNING_FILES_ARE_ENCRYPTED.", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "README!!!", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "# README.", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "!Recovery_", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "YourID.txt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "recover.bmp", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "recover.txt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "README HOW TO DECRYPT YOUR FILES.HTML", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "READ_IT.txt", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".lock93", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".!emc", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".adk", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "svchosd.exe", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_luck", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".aesir", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".CHIP", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".happy", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".angelamerkel", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".razy1337", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".zendr4", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".dharma", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".locked3", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".duhust", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: ".exploit", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_data_file_created), search: "_crypt", ignore_case: true)
+	contains(to_string($message.sysmon_data_file_created), "help_decrypt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "help_restore", true) ||
+	contains(to_string($message.sysmon_data_file_created), "ReadDecryptFilesHere", true) ||
+	contains(to_string($message.sysmon_data_file_created), "howto_recover_file", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_how_recover_", true) ||
+	contains(to_string($message.sysmon_data_file_created), "HOWTO_RESTORE_FILES", true) ||
+	contains(to_string($message.sysmon_data_file_created), "help_my_files", true) ||
+	contains(to_string($message.sysmon_data_file_created), "how_recover", true) ||
+	contains(to_string($message.sysmon_data_file_created), "HELP_TO_SAVE_FILES", true) ||
+	contains(to_string($message.sysmon_data_file_created), "DECRYPT_INSTRUCTIONS", true) ||
+	contains(to_string($message.sysmon_data_file_created), "YOUR_FILES.url", true) ||
+	contains(to_string($message.sysmon_data_file_created), "Coin.Locker.txt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_secret_code.txt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "Decrypt_readme.txt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "FILESAREGONE.txt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "IAMREADYTOPAY.TXT", true) ||
+	contains(to_string($message.sysmon_data_file_created), "HELLOTHERE.TXT", true) ||
+	contains(to_string($message.sysmon_data_file_created), "READTHISNOW!!!.txt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "SECRETIDHERE.KEY", true) ||
+	contains(to_string($message.sysmon_data_file_created), "IHAVEYOURSECRET.KEY", true) ||
+	contains(to_string($message.sysmon_data_file_created), "SECRET.KEY", true) ||
+	contains(to_string($message.sysmon_data_file_created), "HELPDECRYPT_YOUR_FILES.HTML", true) ||
+	contains(to_string($message.sysmon_data_file_created), "RECOVERY_FILES.TXT", true) ||
+	contains(to_string($message.sysmon_data_file_created), "restorefiles", true) ||
+	contains(to_string($message.sysmon_data_file_created), "howrecover+", true) ||
+	contains(to_string($message.sysmon_data_file_created), "restorefiles", true) ||
+	contains(to_string($message.sysmon_data_file_created), "help_recover_instructions", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_Locky_recover", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_ReCoVeRy_", true) ||
+	contains(to_string($message.sysmon_data_file_created), "!!!READ_TO_UNLOCK!!!.TXT", true) ||
+	contains(to_string($message.sysmon_data_file_created), "openforyou@india.com", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".warn_wallet", true) ||
+	contains(to_string($message.sysmon_data_file_created), "nemo-hacks.at.sigaint.org", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".MATRIX", true) ||
+	contains(to_string($message.sysmon_data_file_created), "Crytp0l0cker", true) ||
+	contains(to_string($message.sysmon_data_file_created), "decrypted_files.dat", true) ||
+	contains(to_string($message.sysmon_data_file_created), "padcrypt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "Vape Launcher.exe", true) ||
+	contains(to_string($message.sysmon_data_file_created), "READ_ME_!.txt", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".enjey", true) ||
+	contains(to_string($message.sysmon_data_file_created), "Aescrypt.exe", true) ||
+	contains(to_string($message.sysmon_data_file_created), "PINGY@INDIA.COM", true) ||
+	contains(to_string($message.sysmon_data_file_created), "WORMKILLER@INDIA.COM.XTBL", true) ||
+	contains(to_string($message.sysmon_data_file_created), "CEBER3", true) ||
+	contains(to_string($message.sysmon_data_file_created), "IF_WANT_FILES_BACK_PLS_READ.html", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".iaufkakfhsaraf", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_HELP_HELP_HELP_", true) ||
+	contains(to_string($message.sysmon_data_file_created), "zXz.html", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".zXz", true) ||
+	contains(to_string($message.sysmon_data_file_created), "VictemKey_*_*", true) ||
+	contains(to_string($message.sysmon_data_file_created), "HELP_ME_PLEASE.txt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "!_RECOVERY_HELP_!.txt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "PLEASE-READIT-IF_YOU-WANT.html", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".filegofprencrp", true) ||
+	contains(to_string($message.sysmon_data_file_created), "COME_RIPRISTINARE_I_FILE.*", true) ||
+	contains(to_string($message.sysmon_data_file_created), "fattura_*.js", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_steaveiwalker@india.com_", true) ||
+	contains(to_string($message.sysmon_data_file_created), "COMO_ABRIR_ARQUIVOS.txt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "info@kraken.cc_worldcza@email.cz", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".kr3", true) ||
+	contains(to_string($message.sysmon_data_file_created), "COMO_RESTAURAR_ARCHIVOS", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".ENCR", true) ||
+	contains(to_string($message.sysmon_data_file_created), "[File-Help@India.Com].mails", true) ||
+	contains(to_string($message.sysmon_data_file_created), "damage@india.com", true) ||
+	contains(to_string($message.sysmon_data_file_created), "What happen to my files.txt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "jeepdayz@india.com", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".BarRax", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".damage", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".locked-*", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".jey", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".CRYPTOSHIEL", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".cfk", true) ||
+	contains(to_string($message.sysmon_data_file_created), "ASSISTANCE_IN_RECOVERY", true) ||
+	contains(to_string($message.sysmon_data_file_created), "#_DECRYPT_ASSISTANCE_#", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".lfk", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_HELP_HELP_HELP_", true) ||
+	contains(to_string($message.sysmon_data_file_created), "BTC_DECRYPT_FILES", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".TheTrumpLocker", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".d4nk", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".x3mpro", true) ||
+	contains(to_string($message.sysmon_data_file_created), "READ-READ-READ", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".weencedufiles", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".jse", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".powned", true) ||
+	contains(to_string($message.sysmon_data_file_created), "[KASISKI]", true) ||
+	contains(to_string($message.sysmon_data_file_created), "INSTRUCCIONES", true) ||
+	contains(to_string($message.sysmon_data_file_created), "@_USE_TO_FIX_", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".happydayzz", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".hasp", true) ||
+	contains(to_string($message.sysmon_data_file_created), "001-READ-FOR-DECRYPT-FILES", true) ||
+	contains(to_string($message.sysmon_data_file_created), "DECRYPT_INFORMATION", true) ||
+	contains(to_string($message.sysmon_data_file_created), "Rans0m_N0te_Read_ME", true) ||
+	contains(to_string($message.sysmon_data_file_created), "email-vpupkin3@aol.com", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".hnyear", true) ||
+	contains(to_string($message.sysmon_data_file_created), "hnumkhotep@india.com.hnumkhotep", true) ||
+	contains(to_string($message.sysmon_data_file_created), "wowwhereismyfiles", true) ||
+	contains(to_string($message.sysmon_data_file_created), "decryptional", true) ||
+	contains(to_string($message.sysmon_data_file_created), "wowreadfordecryp", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".7zipper", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".youransom", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".Harzhuangzi", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".encryptedyourfiles", true) ||
+	contains(to_string($message.sysmon_data_file_created), "*HERMES", true) ||
+	contains(to_string($message.sysmon_data_file_created), "[amanda_sofost@india.com]", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".wcry", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".velikasrbija", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".razarac", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".serpent", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".msj", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".szesnl", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_DECRYPT_INFO_szesnl", true) ||
+	contains(to_string($message.sysmon_data_file_created), "000-IF-YOU-WANT-DEC-FILES", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".evillock", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".letmetrydecfiles", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".yourransom", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".lambda_l0cked", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".gefickt", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".uk-dealer@sigaint.org ", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".HakunaMatata", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".CRYPTOSHIELD", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".weareyourfriends", true) ||
+	contains(to_string($message.sysmon_data_file_created), "MERRY_I_LOVE_YOU_BRUCE.hta", true) ||
+	contains(to_string($message.sysmon_data_file_created), "How decrypt files.hta", true) ||
+	contains(to_string($message.sysmon_data_file_created), "unCrypte@outlook.com", true) ||
+	contains(to_string($message.sysmon_data_file_created), "decipher_ne@outlook.com", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".potato", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".otherinformation", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".vxLock", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".rdmk", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".paytounlock", true) ||
+	contains(to_string($message.sysmon_data_file_created), "TRY-READ-ME-TO-DEC", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".sage", true) ||
+	contains(to_string($message.sysmon_data_file_created), "protonmail.ch", true) ||
+	contains(to_string($message.sysmon_data_file_created), "LEER_INMEDIATAMENTE", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".killedXXX", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".doomed", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".sifreli", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".MERRY", true) ||
+	contains(to_string($message.sysmon_data_file_created), "000-No-PROBLEM-WE-DEC-FILES", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".noproblemwedecfiles", true) ||
+	contains(to_string($message.sysmon_data_file_created), "WE-MUST-DEC-FILES", true) ||
+	contains(to_string($message.sysmon_data_file_created), "powerfulldecrypt", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".stn", true) ||
+	contains(to_string($message.sysmon_data_file_created), "opensourcemail.org", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".id-3044989498_x3m", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".x3m", true) ||
+	contains(to_string($message.sysmon_data_file_created), "READ_ME_TO_DECRYPT_YOU_INFORMA", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".wuciwug", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".kencf", true) ||
+	contains(to_string($message.sysmon_data_file_created), "file0locked", true) ||
+	contains(to_string($message.sysmon_data_file_created), "CryptoRansomware", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".VBRANSOM", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_HELP_Recover_Files_", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".oops", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".deria", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".RMCM1", true) ||
+	contains(to_string($message.sysmon_data_file_created), "Locked-by-Mafia", true) ||
+	contains(to_string($message.sysmon_data_file_created), "кибер разветвитель", true) ||
+	contains(to_string($message.sysmon_data_file_created), "-filesencrypted", true) ||
+	contains(to_string($message.sysmon_data_file_created), "decrypt_Globe", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".hnumkhotep", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".decrypt2017", true) ||
+	contains(to_string($message.sysmon_data_file_created), "DecryptFile", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".L0CKED", true) ||
+	contains(to_string($message.sysmon_data_file_created), "NFS-e*1025-7152.exe", true) ||
+	contains(to_string($message.sysmon_data_file_created), "firstransomware.exe", true) ||
+	contains(to_string($message.sysmon_data_file_created), "HELP-ME-ENCED-FILES", true) ||
+	contains(to_string($message.sysmon_data_file_created), "helpmeencedfiles", true) ||
+	contains(to_string($message.sysmon_data_file_created), "EdgeLocker*.exe ", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".edgel", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".XBTL", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".firecrypt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "YOUR_FILES_ARE_DEAD", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".MRCR1", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".PEGS1", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".RARE1", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".airacropencrypted!", true) ||
+	contains(to_string($message.sysmon_data_file_created), "cryptsvc@mail.ru", true) ||
+	contains(to_string($message.sysmon_data_file_created), "WHERE-YOUR-FILES", true) ||
+	contains(to_string($message.sysmon_data_file_created), "Whereisyourfiles", true) ||
+	contains(to_string($message.sysmon_data_file_created), "india.com", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".odcodc", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".maktub", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".hush", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".bript", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_*_README.hta", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_*_README.jpg", true) ||
+	contains(to_string($message.sysmon_data_file_created), "HOW_OPEN_FILES", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".gangbang", true) ||
+	contains(to_string($message.sysmon_data_file_created), "GJENOPPRETTING_AV_FILER", true) ||
+	contains(to_string($message.sysmon_data_file_created), "!!! HOW TO DECRYPT FILES !!!", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".braincrypt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "INSTRUCTION RESTORE FILE", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".lesli", true) ||
+	contains(to_string($message.sysmon_data_file_created), "Survey Locker.exe", true) ||
+	contains(to_string($message.sysmon_data_file_created), "!!!!!ATENÇÃO!!!!!.html", true) ||
+	contains(to_string($message.sysmon_data_file_created), "Receipt.exe", true) ||
+	contains(to_string($message.sysmon_data_file_created), "WindowsApplication1.exe", true) ||
+	contains(to_string($message.sysmon_data_file_created), "HWID Lock.exe", true) ||
+	contains(to_string($message.sysmon_data_file_created), "VIP72.exe", true) ||
+	contains(to_string($message.sysmon_data_file_created), "DALE_FILES.TXT", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".DALE", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".8637", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".kok", true) ||
+	contains(to_string($message.sysmon_data_file_created), "HOW_TO_RESTORE_YOUR_DATA", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".paymrts", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".paymds", true) ||
+	contains(to_string($message.sysmon_data_file_created), "RESTORE_CORUPTED_FILES", true) ||
+	contains(to_string($message.sysmon_data_file_created), "READ@My.txt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "Cyber SpLiTTer Vbs.exe", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".flyper", true) ||
+	contains(to_string($message.sysmon_data_file_created), "000-PLEASE-READ-WE-HELP", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".VforVendetta", true) ||
+	contains(to_string($message.sysmon_data_file_created), "popcorn_time.exe", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".filock", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".wallet", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_.rmd", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".uDz2j8mv", true) ||
+	contains(to_string($message.sysmon_data_file_created), "OSIRIS-*.htm", true) ||
+	contains(to_string($message.sysmon_data_file_created), "DesktopOsiris", true) ||
+	contains(to_string($message.sysmon_data_file_created), "inbox.ru", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".no_more_ransom", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".lovewindows", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".osiris", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".R.i.P", true) ||
+	contains(to_string($message.sysmon_data_file_created), "Important!.txt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "!_HOW_TO_RESTORE_", true) ||
+	contains(to_string($message.sysmon_data_file_created), "HOW_TO_RESTORE_FILES", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_README_", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".Zzzz", true) ||
+	contains(to_string($message.sysmon_data_file_created), "lavandos@dr.com", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".coin", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".crypted_file", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".EncrypTile", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".hcked", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_README_", true) ||
+	contains(to_string($message.sysmon_data_file_created), "Runsome.exe", true) ||
+	contains(to_string($message.sysmon_data_file_created), "Payment_Advice", true) ||
+	contains(to_string($message.sysmon_data_file_created), "lblBitcoinInfoMain", true) ||
+	contains(to_string($message.sysmon_data_file_created), "lblFinallyText", true) ||
+	contains(to_string($message.sysmon_data_file_created), "lblMain.txt", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".hannah", true) ||
+	contains(to_string($message.sysmon_data_file_created), "*.vindows", true) ||
+	contains(to_string($message.sysmon_data_file_created), "How to decrypt your files.", true) ||
+	contains(to_string($message.sysmon_data_file_created), "zcrypt.exe", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".zycrypt", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".sgood", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".zzzzz", true) ||
+	contains(to_string($message.sysmon_data_file_created), "xort.txt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "DOSYALARINIZA ULAŞMAK İÇİN AÇINIZ", true) ||
+	contains(to_string($message.sysmon_data_file_created), "HOWTO_RECOVER_FILES_", true) ||
+	contains(to_string($message.sysmon_data_file_created), "HELP_RESTORE_FILES_", true) ||
+	contains(to_string($message.sysmon_data_file_created), "Recovery+", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_H_e_l_p_RECOVER_INSTRUCTIONS+", true) ||
+	contains(to_string($message.sysmon_data_file_created), "help_recover_instructions+", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_how_recover+", true) ||
+	contains(to_string($message.sysmon_data_file_created), "ThxForYurTyme", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_HOW_TO_Decrypt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_RECOVER_INSTRUCTIONS", true) ||
+	contains(to_string($message.sysmon_data_file_created), "###-READ-FOR-HELLPP", true) ||
+	contains(to_string($message.sysmon_data_file_created), "rtext.txt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "DECRYPTION INSTRUCTIONS.", true) ||
+	contains(to_string($message.sysmon_data_file_created), "decrypt explanations.", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_WHAT_is.html", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_HOWDO_text.html", true) ||
+	contains(to_string($message.sysmon_data_file_created), "readme_liesmich_encryptor_raas", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_Adatok_visszaallitasahoz_utasitasok", true) ||
+	contains(to_string($message.sysmon_data_file_created), "README_TO_RECURE_YOUR_FILES", true) ||
+	contains(to_string($message.sysmon_data_file_created), "Your files encrypted by our friends !!!.txt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "ATTENTION.url", true) ||
+	contains(to_string($message.sysmon_data_file_created), "@WARNING_FILES_ARE_ENCRYPTED.", true) ||
+	contains(to_string($message.sysmon_data_file_created), "README!!!", true) ||
+	contains(to_string($message.sysmon_data_file_created), "# README.", true) ||
+	contains(to_string($message.sysmon_data_file_created), "!Recovery_", true) ||
+	contains(to_string($message.sysmon_data_file_created), "YourID.txt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "recover.bmp", true) ||
+	contains(to_string($message.sysmon_data_file_created), "recover.txt", true) ||
+	contains(to_string($message.sysmon_data_file_created), "README HOW TO DECRYPT YOUR FILES.HTML", true) ||
+	contains(to_string($message.sysmon_data_file_created), "READ_IT.txt", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".lock93", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".!emc", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".adk", true) ||
+	contains(to_string($message.sysmon_data_file_created), "svchosd.exe", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_luck", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".aesir", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".CHIP", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".happy", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".angelamerkel", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".razy1337", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".zendr4", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".dharma", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".locked3", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".duhust", true) ||
+	contains(to_string($message.sysmon_data_file_created), ".exploit", true) ||
+	contains(to_string($message.sysmon_data_file_created), "_crypt", true)
 then
 	// set field
 	set_field("ransomware_detected", true);
