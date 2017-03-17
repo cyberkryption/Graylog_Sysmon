@@ -16,7 +16,8 @@ when
 	contains(value: to_string($message.sysmon_cmd_event), search: "telnet", ignore_case: true) ||
 	contains(value: to_string($message.sysmon_cmd_event), search: "psexe", ignore_case: true) ||
 	contains(value: to_string($message.sysmon_cmd_event), search: "-NoProfile", ignore_case: true) ||
-	contains(value: to_string($message.sysmon_cmd_event), search: "-nop", ignore_case: true)
+	contains(value: to_string($message.sysmon_cmd_event), search: "-w hidden ", ignore_case: true) ||
+	contains(value: to_string($message.sysmon_cmd_event), search: "-windowstyle hidden", ignore_case: true)
 then
 	// set field
 	set_field("suspicious_event", true);
