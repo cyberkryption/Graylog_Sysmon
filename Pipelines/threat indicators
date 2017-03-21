@@ -19,7 +19,15 @@ when
 	contains(to_string($message.sysmon_cmd_event), "-w hidden ", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-windowstyle hidden", true) ||
 	contains(to_string($message.sysmon_cmd_event), "schtasks.exe /create", true) ||
-	contains(to_string($message.sysmon_cmd_event), "certutil.exe -decode", true)
+	contains(to_string($message.sysmon_cmd_event), "certutil.exe -decode", true) ||
+	contains(to_string($message.sysmon_cmd_event), "copy \\?\GLOBALROOT\Device\*\windows\ntds\ntds.dit", true) ||
+	contains(to_string($message.sysmon_cmd_event), "copy \\?\GLOBALROOT\Device\*\config\SAM", true) ||
+	contains(to_string($message.sysmon_cmd_event), "vssadmin delete shadows /for=C:", true) ||
+	contains(to_string($message.sysmon_cmd_event), "vssadmin delete shadows /for=C:", true) ||
+	contains(to_string($message.sysmon_cmd_event), "vssadmin delete shadows /for=C:", true) ||
+	contains(to_string($message.sysmon_cmd_event), "vssadmin delete shadows /for=C:", true) ||
+	contains(to_string($message.sysmon_cmd_event), "REG SAVE HK", true) ||
+	
 then
 	// set field
 	set_field("suspicious_event", true);
