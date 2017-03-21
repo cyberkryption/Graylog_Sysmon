@@ -17,7 +17,9 @@ when
 	contains(to_string($message.sysmon_cmd_event), "psexe", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-NoProfile", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-w hidden ", true) ||
-	contains(to_string($message.sysmon_cmd_event), "-windowstyle hidden", true)
+	contains(to_string($message.sysmon_cmd_event), "-windowstyle hidden", true) ||
+	contains(to_string($message.sysmon_cmd_event), "schtasks.exe /create", true)
+	
 then
 	// set field
 	set_field("suspicious_event", true);
