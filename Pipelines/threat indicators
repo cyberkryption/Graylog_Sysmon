@@ -18,8 +18,8 @@ when
 	contains(to_string($message.sysmon_cmd_event), "-NoProfile", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-w hidden ", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-windowstyle hidden", true) ||
-	contains(to_string($message.sysmon_cmd_event), "schtasks.exe /create", true)
-	
+	contains(to_string($message.sysmon_cmd_event), "schtasks.exe /create", true) ||
+	contains(to_string($message.sysmon_cmd_event), "certutil.exe -decode", true)
 then
 	// set field
 	set_field("suspicious_event", true);
