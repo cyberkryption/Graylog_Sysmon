@@ -15,7 +15,6 @@ when
 	contains(to_string($message.sysmon_cmd_event), "DownloadString", true) ||
 	contains(to_string($message.sysmon_cmd_event), "telnet", true) ||
 	contains(to_string($message.sysmon_cmd_event), "psexe", true) ||
-	contains(to_string($message.sysmon_cmd_event), "-NoProfile", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-w hidden ", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-windowstyle hidden", true) ||
 	contains(to_string($message.sysmon_cmd_event), "schtasks.exe /create", true) ||
@@ -29,18 +28,23 @@ when
 	contains(to_string($message.sysmon_cmd_event), "-windo h", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-wind h", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-win h", true) ||
+	contains(to_string($message.sysmon_cmd_event), "-w h", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-wi h", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-win h", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-win hi", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-win hid", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-win hidd", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-win hidde", true) ||
+	contains(to_string($message.sysmon_cmd_event), "-win hidden", true) ||
+	contains(to_string($message.sysmon_cmd_event), "-NoP", true) ||
+	contains(to_string($message.sysmon_cmd_event), "-NoPr", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-NoPr", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-NoPro", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-NoProf", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-NoProfi", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-NoProfil", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-NoProfile", true) ||
+	contains(to_string($message.sysmon_cmd_event), "-noni", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-nonin", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-nonint", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-noninte", true) ||
@@ -63,8 +67,9 @@ when
 	contains(to_string($message.sysmon_cmd_event), "-encode", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-encod", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-enco", true) ||
+	contains(to_string($message.sysmon_cmd_event), "-enc", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-en", true) ||
-	contains(to_string($message.sysmon_cmd_event), " -en ", true)
+	contains(to_string($message.sysmon_cmd_event), "-dumpcr", true)
 then
 	// set field
 	set_field("suspicious_cmd_event", true);
