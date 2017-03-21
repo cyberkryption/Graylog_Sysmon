@@ -21,9 +21,6 @@ when
 	contains(to_string($message.sysmon_cmd_event), "schtasks.exe /create", true) ||
 	contains(to_string($message.sysmon_cmd_event), "certutil.exe -decode", true) ||
 	contains(to_string($message.sysmon_cmd_event), "vssadmin delete shadows /for=C:", true) ||
-	contains(to_string($message.sysmon_cmd_event), "vssadmin delete shadows /for=C:", true) ||
-	contains(to_string($message.sysmon_cmd_event), "vssadmin delete shadows /for=C:", true) ||
-	contains(to_string($message.sysmon_cmd_event), "vssadmin delete shadows /for=C:", true) ||
 	contains(to_string($message.sysmon_cmd_event), " -windowstyle h ", true) ||
 	contains(to_string($message.sysmon_cmd_event), " -windowstyl h", true) ||
 	contains(to_string($message.sysmon_cmd_event), " -windowsty h", true) ||
@@ -63,13 +60,7 @@ when
 	contains(to_string($message.sysmon_cmd_event), " -encode ", true) ||
 	contains(to_string($message.sysmon_cmd_event), " -encod ", true) ||
 	contains(to_string($message.sysmon_cmd_event), " -enco ", true) ||
-	contains(to_string($message.sysmon_cmd_event), " -en ", true) ||
-	contains(to_string($message.sysmon_cmd_event), "wscript.exe", true) && contains(to_string($message.sysmon_cmd_event), ".js", true) ||
-	contains(to_string($message.sysmon_cmd_event), "wscript.exe", true) && contains(to_string($message.sysmon_cmd_event), ".jse", true) ||
-	contains(to_string($message.sysmon_cmd_event), "wscript.exe", true) && contains(to_string($message.sysmon_cmd_event), ".vba", true) ||
-	contains(to_string($message.sysmon_cmd_event), "cscript.exe", true) && contains(to_string($message.sysmon_cmd_event), ".vba", true) ||
-	contains(to_string($message.sysmon_cmd_event), "cscript.exe", true) && contains(to_string($message.sysmon_cmd_event), ".vba", true) ||
-	contains(to_string($message.sysmon_cmd_event), "cscript.exe", true) && contains(to_string($message.sysmon_cmd_event), ".vba", true)
+	contains(to_string($message.sysmon_cmd_event), " -en ", true)
 then
 	// set field
 	set_field("suspicious_event", true);
