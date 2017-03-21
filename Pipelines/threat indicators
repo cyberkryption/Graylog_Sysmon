@@ -19,7 +19,6 @@ when
 	contains(to_string($message.sysmon_cmd_event), "-windowstyle hidden", true) ||
 	contains(to_string($message.sysmon_cmd_event), "schtasks.exe /create", true) ||
 	contains(to_string($message.sysmon_cmd_event), "certutil.exe -decode", true) ||
-	contains(to_string($message.sysmon_cmd_event), "vssadmin delete shadows /for=C:", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-windowstyle h", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-windowstyl h", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-windowsty h", true) ||
@@ -69,6 +68,8 @@ when
 	contains(to_string($message.sysmon_cmd_event), "-enco", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-enc", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-en", true) ||
+	contains(to_string($message.sysmon_cmd_event), "putty", true)
+	contains(to_string($message.sysmon_cmd_event), "kitty", true)
 	contains(to_string($message.sysmon_cmd_event), "-dumpcr", true)
 then
 	// set field
