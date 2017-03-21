@@ -64,11 +64,7 @@ when
 	contains(to_string($message.sysmon_cmd_event), "-encod", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-enco", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-en", true) ||
-	contains(to_string($message.sysmon_cmd_event), " -en ", true) ||
-	contains(to_string($message.sysmon_cmd_event), "wscript.exe", true) && contains(to_string($message.sysmon_cmd_event), ".js", true) ||
-	contains(to_string($message.sysmon_cmd_event), "wscript.exe", true) && contains(to_string($message.sysmon_cmd_event), ".jse", true) ||
-	contains(to_string($message.sysmon_cmd_event), "wscript.exe", true) && contains(to_string($message.sysmon_cmd_event), ".vba", true) ||
-	contains(to_string($message.sysmon_cmd_event), "cscript.exe", true) && contains(to_string($message.sysmon_cmd_event), ".vba", true)
+	contains(to_string($message.sysmon_cmd_event), " -en ", true)
 then
 	// set field
 	set_field("suspicious_cmd_event", true);
