@@ -68,9 +68,14 @@ when
 	contains(to_string($message.sysmon_cmd_event), "-enco", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-enc", true) ||
 	contains(to_string($message.sysmon_cmd_event), "-en", true) ||
-	contains(to_string($message.sysmon_cmd_event), "putty", true)
-	contains(to_string($message.sysmon_cmd_event), "kitty", true)
-	contains(to_string($message.sysmon_cmd_event), "-dumpcr", true)
+	contains(to_string($message.sysmon_cmd_event), "-dumpcr", true) ||
+	contains(to_string($message.sysmon_cmd_event), "putty", true) ||
+	contains(to_string($message.sysmon_cmd_event), "bash", true) ||
+	contains(to_string($message.sysmon_cmd_event), "pssh", true) ||
+	contains(to_string($message.sysmon_cmd_event), "sdelete", true) ||
+	contains(to_string($message.sysmon_cmd_event), "shareenum", true) ||
+	contains(to_string($message.sysmon_cmd_event), "reg.exe", true) ||
+	contains(to_string($message.sysmon_cmd_event), "regedit", true) ||
 then
 	// set field
 	set_field("suspicious_cmd_event", true);
