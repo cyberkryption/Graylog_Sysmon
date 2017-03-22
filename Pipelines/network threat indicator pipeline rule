@@ -1,7 +1,7 @@
 rule "network threat indicators"
 when
         // Network Events
-	has_field("sysmon_dns_lookup_ip") &&
+	has_field("sysmon_dns_lookup_ip") && is_not_null($message.sysmon_event_id) && $message.sysmon_event_id == "3" &&
 	contains(to_string($message.sysmon_data_process), "at.exe", true) ||
 	contains(to_string($message.sysmon_data_process), "certutil.exe", true) ||
 	contains(to_string($message.sysmon_data_process), "cmd.exe", true) ||
