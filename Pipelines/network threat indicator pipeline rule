@@ -36,7 +36,6 @@ when
 	contains(to_string($message.sysmon_dns_lookup), "goo.gl", true) ||
 	contains(to_string($message.sysmon_dns_lookup), "git.io", true) ||
 	contains(to_string($message.sysmon_dns_lookup), "bit.ly", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "t.co", true) ||
 	contains(to_string($message.sysmon_dns_lookup), "ow.ly", true) ||
 	// Dynamic DNS providers
 	contains(to_string($message.sysmon_dns_lookup), "dlinkddns.com", true) ||
