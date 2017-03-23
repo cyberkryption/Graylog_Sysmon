@@ -1,80 +1,80 @@
 rule "network threat indicators"
 when
-        // Network Events
-	has_field("sysmon_dns_lookup_ip") && is_not_null($message.sysmon_event_id) && $message.sysmon_event_id == "3" &&
-	contains(to_string($message.sysmon_data_process), "at.exe", true) ||
-	contains(to_string($message.sysmon_data_process), "certutil.exe", true) ||
-	contains(to_string($message.sysmon_data_process), "cmd.exe", true) ||
-	contains(to_string($message.sysmon_data_process), "cscript.exe", true) ||
-	contains(to_string($message.sysmon_data_process), "wscript.exe", true) ||
-	contains(to_string($message.sysmon_data_process), "rundll32.exe", true) ||
-	contains(to_string($message.sysmon_data_process), "regsvr32.exe", true) ||
-	contains(to_string($message.sysmon_data_process), "mshta.exe", true) ||
-	contains(to_string($message.sysmon_data_process), "python.exe", true) ||
-	contains(to_string($message.sysmon_data_process), "psexe", true) ||
-	contains(to_string($message.sysmon_data_process), "installutil.exe", true) ||
-	contains(to_string($message.sysmon_data_process), "putty.exe", true) ||
-	contains(to_string($message.sysmon_data_process), "telnet.exe", true) ||
-	contains(to_string($message.sysmon_data_process), "msiexec.exe", true) ||
-	contains(to_string($message.sysmon_data_process), "reg.exe", true) ||
-	contains(to_string($message.sysmon_data_process), "kitty.exe", true) ||
-	contains(to_string($message.sysmon_data_process), "kitty_portable.exe", true) ||
-	contains(to_string($message.sysmon_data_process), "net.exe", true) ||
-	contains(to_string($message.sysmon_data_process), "mmc.exe", true) ||
-	contains(to_string($message.sysmon_data_process), "sc.exe", true) ||
-	contains(to_string($message.sysmon_data_process), "ftp.exe", true) ||
+    // Network Events
+	(has_field("sysmon_dns_lookup_ip") && is_not_null($message.sysmon_event_id) && $message.sysmon_event_id == "3") &&
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "at.exe", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "certutil.exe", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "cmd.exe", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "cscript.exe", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "wscript.exe", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "rundll32.exe", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "regsvr32.exe", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "mshta.exe", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "python.exe", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "psexe", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "installutil.exe", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "putty.exe", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "telnet.exe", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "msiexec.exe", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "reg.exe", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "kitty.exe", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "kitty_portable.exe", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "net.exe", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "mmc.exe", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "sc.exe", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_data_process), "ftp.exe", true)) ||
 	// Suspicious Destinations
-	contains(to_string($message.sysmon_dns_lookup), "ipify.org", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "whatismyipaddress.com", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "edns.ip-api.com", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "checkip.dyndns.org", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "icanhazip.com", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "ifconfig.me", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "ifconfig.co", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "ipaddress.com", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "ipinfo.io", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "goo.gl", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "git.io", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "bit.ly", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "ow.ly", true) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "ipify.org", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "whatismyipaddress.com", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "edns.ip-api.com", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "checkip.dyndns.org", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "icanhazip.com", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "ifconfig.me", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "ifconfig.co", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "ipaddress.com", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "ipinfo.io", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "goo.gl", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "git.io", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "bit.ly", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "ow.ly", true)) ||
 	// Dynamic DNS providers
-	contains(to_string($message.sysmon_dns_lookup), "dlinkddns.com", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "no-ip", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "afraid.org", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "duckdns.org", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "changeip.com", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "ddns.net", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "hopto.org", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "zapto.org", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "servehttp.com", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "sytes.net", true) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "dlinkddns.com", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "no-ip", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "afraid.org", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "duckdns.org", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "changeip.com", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "ddns.net", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "hopto.org", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "zapto.org", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "servehttp.com", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "sytes.net", true)) ||
 	// Tor2Web Providers
-	contains(to_string($message.sysmon_dns_lookup), "onion.to", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "onion.cab", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "onion.sh", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "onion.nu", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "onion.direct", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "tor2web", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "tor2web", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "tor-gateways", true) ||
-	contains(to_string($message.sysmon_dns_lookup), "hiddenservice.net", true) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "onion.to", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "onion.cab", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "onion.sh", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "onion.nu", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "onion.direct", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "tor2web", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "tor2web", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "tor-gateways", true)) ||
+	(has_field("sysmon_dns_lookup_ip") && contains(to_string($message.sysmon_dns_lookup), "hiddenservice.net", true)) ||
 	// Start Ports
-	is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "22" ||
-	is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "23" ||
-	is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "1080" ||
-	is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "8080" ||
-	is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "3128" ||
-	is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "9001" ||
-	is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "9030" ||
-	is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "1723" ||
-	is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "3389" ||
-	is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "5800" ||
-	is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "5900" ||
-	is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "1194" ||
-	is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "1701" ||
-	is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "1723" ||
-	is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "1293" ||
-	is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "4500"
+	(has_field("sysmon_dns_lookup_ip") && is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "22") ||
+	(has_field("sysmon_dns_lookup_ip") && is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "23") ||
+	(has_field("sysmon_dns_lookup_ip") && is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "1080") ||
+	(has_field("sysmon_dns_lookup_ip") && is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "8080") ||
+	(has_field("sysmon_dns_lookup_ip") && is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "3128") ||
+	(has_field("sysmon_dns_lookup_ip") && is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "9001") ||
+	(has_field("sysmon_dns_lookup_ip") && is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "9030") ||
+	(has_field("sysmon_dns_lookup_ip") && is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "1723") ||
+	(has_field("sysmon_dns_lookup_ip") && is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "3389") ||
+	(has_field("sysmon_dns_lookup_ip") && is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "5800") ||
+	(has_field("sysmon_dns_lookup_ip") && is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "5900") ||
+	(has_field("sysmon_dns_lookup_ip") && is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "1194") ||
+	(has_field("sysmon_dns_lookup_ip") && is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "1701") ||
+	(has_field("sysmon_dns_lookup_ip") && is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "1723") ||
+	(has_field("sysmon_dns_lookup_ip") && is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "1293") ||
+	(has_field("sysmon_dns_lookup_ip") && is_not_null($message.sysmon_dest_port) && $message.sysmon_dest_port == "4500")
 then
 	// set field
 	set_field("suspicious_net_event", true);
